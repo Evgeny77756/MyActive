@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% load static %}
+
+    <link href="{% static 'css/reset.css' %}" rel="stylesheet">
+    <link href="{% static 'css/setka.css' %}" rel="stylesheet">
+    <link href="{% static 'css/action__detail.css' %}" rel="stylesheet">
+
+
+</head>
+<body>
+    <header class="header">
+        {% for st in stock_list %}
+        <div class="container">
+            <div class="row">
+
+                <div class="header__img row col-3">
+                    <div class="header__img__block"><img src="{{ st.image.url }}" alt="" class="header__logo"></div>
+                    <div class="header__name__action sizeText">
+                        <p class="header__text txt__info__digit sizeText">{{ st.name }}</p>
+                    </div>
+
+                </div>
+    
+    
+                <div class="main__date__info main col-3">
+                    <p class="main__date__info__openDate txt__info__digit sizeText"><span class="txt sizeText">стоимость</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ st.price }} $</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </header>
+</body>
+</html>

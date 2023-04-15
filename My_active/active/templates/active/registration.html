@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/setka.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+
+</head>
+<body>
+    <header class="header">
+            <div class="container">
+                    <nav class="nav row justify__content__between">
+                        <img src="{% static 'img/first_page/registration_img/Subtract.png' %}" class="nav__logo">
+                        <ul class="nav__list row">
+                            <li class="nav__list__item"><a href="#" class="sizeText nav__list__link "> Доходы и безопасность</a></li>
+                            <li class="nav__list__item"><a href="#" class="nav__list__link sizeText"> Обратная связь</a></li>
+                            <button class="nav__list__btn row">
+                                <a href="#">
+                                    <div class="nav__list__btn__block row">
+                                        <img src="{% static 'img/first_page/registration_img/Profile.png' %}" alt="" class="nav__list__btn__img">
+                                        <p class="nav__list__btn__text">Вход</p>
+                                    </div>
+                                </a>
+                            </button>
+                        </ul>
+                    </nav>
+            </div>
+    </header>
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="main__regist__img col-4">
+                    <img src="{% static 'img/first_page/registration_img/Image.png' %}" alt="" class="">
+                </div>
+                <div class="main__regist col-7 row justify__content__center">
+                    <form class="main__register__form" action="">
+                        <h2 class="main__regist__title">Регистрация</h2>
+                        <br>
+                        <ul class="main__regist__list">
+                            <input class="main__regist__form" type="text" placeholder="Enter Email" name="email">
+                            <input class="main__regist__form" type="text" placeholder="Enter Login" name="login">
+                            <input class="main__regist__form" type="text" placeholder="Enter Password" name="password">
+
+                            <button class="main__regist__btn">
+                                <a href="#" class="main__regist__btn__link">Зарегистрироваться</a>
+                            </button>
+
+                            
+                            <hr class="main__regist__line">
+                            <div class="main__regist__signin row justify__content__between">
+                                <p class="main__regist__signin__text">Уже зарегистрированы?</p>
+                                <a href="#" class="main__regist__signin__link">Войти в аккаунт</a>
+                            </div>
+                            </ul>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <img src="{% static 'img/first_page/registration_img/backgr.png' %}" alt="" class="main__bckgr col-6">
+        <div class="main__blur"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify__content__between">
+                <div class="footer__logoBlock">
+                    <img src="{% static 'img/first_page/registration_img/Subtract.png' %}" alt="" class="footer__logoBlock__img">
+                    <p class="footer__logoBlock__text sizeText">Платформа для управлениями инвестициями</p>
+                </div>
+                <ul class="footer__list row">
+                    <li class="footer__item"><a href="#" class="footer__item__link sizeText">Обратная связь</a></li>
+                    <li class="footer__item"><a href="#" class="footer__item__link sizeText">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
