@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% block title %}Список акций{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/buy_stock.css' %}">{% endblock %}
+
+{% block content %}
+
+    <h1>Chat</h1>
+    <ul>
+        {% for message in messages %}
+            {% if message.user.username == user %}
+                <li><p class="sect__block__text sect__kol col-4" style="margin: 5px; background: lightblue; color: blue;">
+                    <span class="user_style">{{ message.user.username }}:</span> <span class="user__style__date">{{ message.create_date }}</span><br>
+                    <span class="user__style__message">{{ message.message }}</span></p></li>
+            {% else %}
+                <li style="margin-left: 700px" ><p class="sect__block__text sect__kol col-6" style="margin: 10px">{{ message.user.username }}:<br> {{ message.message }}<br> {{ message.create_date }}</p></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" class="sect__block__text sect__kol"  name="message">
+        <input type="submit" class="sect__btn sect__title" value="send">
+        <a href="{% url 'stock_user' %}" class="sect__btn sect__title">назад</a>
+    </form>
+
+    <script>
+        window.scrollTo(0, document.body.scrollHeight);
+    </script>
+
+{% endblock %}

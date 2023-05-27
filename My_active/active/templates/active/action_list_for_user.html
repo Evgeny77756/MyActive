@@ -9,8 +9,7 @@
     <header class="header">
         <div style="margin-top: 50px" class="container">
                 <div class="row justify__content__end">
-                    <a href="{% url 'registration' %}" class="txt sizeText">Регистрация&nbsp;&nbsp;</a>
-                    <a href="{% url 'login' %}" class="txt sizeText">Войти</a>
+                    <a href="{% url 'stock_user' %}" class="txt sizeText">Назад</a>
                 </div>
 
                 {% for st in stock_list %}
@@ -29,7 +28,7 @@
                         <div class="main__date__info main col-6 row justify__content__between">
                             <p class="main__date__info__openDate txt__info__digit sizeText"><span class="txt sizeText">стоимость</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {{ st.price }} $ &nbsp&nbsp</p>
-                            <a href="{% url 'login' %}" class="txt sizeText" style="color: green;"> Купить</a>
+                            <a href="{% url 'buy_stock_user' st.pk %}" class="txt sizeText" style="color: green;"> Купить</a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,31 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/registration.css' %}">{% endblock %}
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<body class="row justify__content__center">
+    <div class="main__regist col-7 row justify__content__center">
+        <form class="main__register__form" method="post">
+            {% csrf_token %}
+            <h2 class="main__regist__title">Вход</h2>
+            <br>
+            <ul class="main__regist__list">
+
+                <div class="main__regist__form">{{ form.non_field_errors }}</div>
+                <input class="main__regist__form" type="text" placeholder="Enter Login" name="username">
+                <input class="main__regist__form" type="password" placeholder="Enter Password" name="password">
+
+                <input class="main__regist__btn" type="submit"  value="Войти">
+
+
+                <hr class="main__regist__line">
+<!--                <div class="main__regist__signin row justify__content__between">-->
+<!--                    <a href="#" class="main__regist__signin__link">Не помните пароль?</a>-->
+<!--                </div>-->
+            </ul>
+        </form>
+    </div>
+</body>
+{% endblock %}

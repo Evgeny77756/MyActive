@@ -65,6 +65,8 @@ body {
 }
 .main__register__form {
     width: 80%;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 .main__regist__title {
     font-family: 'Montserrat';
@@ -73,33 +75,51 @@ body {
     line-height: 167.3%;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 90px;
 }
 .main__regist__form {
+
     display: block;
     width: 100%;
-    /* display: inline; */
+    padding: 16px 0px 15px 0px;
+
+
     background: rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0px 1px 2px rgba(239, 232, 232, 0.6);
+    box-shadow: inset 0px 1px 2px rgba(239, 232, 232, 0.3);
     backdrop-filter: blur(1.5px);
     border-radius: 15px;
-    margin-bottom: 24px;
-    padding: 16px 0px 15px 0px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 167.3%;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-bottom: 26px;
+    padding-left: 27px;
+    padding-right: -27px;
+
 }
+
+.main__regist {
+    margin-top: 40px;
+
+}
+
 .main__regist__block {
-    /* padding-left: 27px; */
     text-align: center;
 }
 .main__regist__form::placeholder {
+
+
     display: inline;
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 15px;
     line-height: 167.3%;
     color: #DCDCDC;
-    margin-left: 27px;
-    padding-left: 20px;
-    padding-right: -20px;
 
 }
 .main__blur::before {
@@ -154,6 +174,7 @@ body {
     text-align: right;
     text-decoration-line: underline;
     color: #73FFF2;
+    margin-bottom: 24px;
 }
 .main__regist__line {
     margin-top: 24px;

@@ -1,0 +1,93 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% block title %}Список акций{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/action__detail.css' %}">{% endblock %}
+
+
+{% block content %}
+<body>
+    <header class="header">
+        <div style="margin-top: 50px" class="container">
+
+
+
+
+            {% if request.user.is_authenticated %}
+            <div class="row justify__content__between">
+                <li style="list-style-type: none" class=" header__text txt__info__digit sizeText txt ">Пользователь: {{ user.username }} </li>
+                <div class="header__text sizeText row ">
+                    <a href="{% url 'chat' %}" class="sect__btn sect__title">Чат</a>
+                    <a href="{% url 'balance' %}" class="sect__btn sect__title">Пополнить <br> баланс&nbsp;&nbsp;</a>
+                    <a href="{% url 'action_for_user'%} " class="sect__btn sect__title">Акции</a>
+                    <a href="{% url 'withdraw_many' %}" class="sect__btn sect__title">Вывести <br>средства&nbsp;&nbsp;</a>
+                    <a href="{% url 'logout' %}" class="sect__btn sect__title">Выйти</a>
+
+                </div>
+            </div>
+
+
+
+                <p class="header__text txt__info__digit sizeText" style="text-transform: lowercase;" >денег на счёте&nbsp; {{ deposit }} $</p>
+
+
+            {% for st_user in context.values %}
+                <div class="container">
+                    <div class="row">
+
+                        <div class="header__img row col-3">
+                            <div class="header__name__action sizeText">
+                                <p class="header__text txt__info__digit sizeText">{{ st_user.0 }}</p>
+                                <p class="main__date__info__openDate txt__info__digit" style="margin-top: 5px;">{{ st_user.1 }}&nbsp; шт. </p>
+                            </div>
+                        </div>
+
+                        <div class="main__date__info main col-6 row justify__content__between">
+                            <p class="main__date__info__openDate txt__info__digit sizeText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ st_user.2 }} $</p>
+
+                            {% if st_user.3 > 0 %}
+                                <p class="main__date__info__openDate txt__info__digit sizeText" style="color: green">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ st_user.3 }} $</p>
+                            {% elif st_user.3 == 0 %}
+                                <p class="main__date__info__openDate txt__info__digit sizeText" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ st_user.3 }} $</p>
+                            {% else %}
+                                <p class="main__date__info__openDate txt__info__digit sizeText" style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {{ st_user.3 }} $</p>
+                            {% endif %}
+<!--                                <a href="{% url 'sell_stock_user' st_user.4 %}" class="header__text txt__info__digit sizeText" style="color: green" id="btn">купить</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                <a href="{% url 'buy_stock_user' st_user.4 %}" class="header__text txt__info__digit sizeText" style="color: green" id="btn">купить</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                <a href="{% url 'sell_stock_user' st_user.4 %}" class="header__text txt__info__digit sizeText" style="color: red">продать</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <p class="txt sizeText">Прибыль:&nbsp;&nbsp;</p>
+
+            {% if profit > 0 %}
+                <p class="header__text txt__info__digit sizeText" style="color: green">{{ profit }} $</p>
+            {% elif profit == 0 %}
+                <p class="header__text txt__info__digit sizeText">{{ profit }} $</p>
+            {% else %}
+                <p class="header__text txt__info__digit sizeText" style="color: red">{{ profit }} $</p>
+            {% endif %}
+
+            {% else %}
+            <div class="row justify__content__end">
+                <a href="{% url 'registration' %}" class="txt sizeText">Регистрация&nbsp;&nbsp;</a>
+                <a href="{% url 'login' %}" class="txt sizeText">Войти</a>
+            </div>
+            {% endif %}
+
+
+        </div>
+
+    </header>
+
+
+</body>
+{% endblock %}

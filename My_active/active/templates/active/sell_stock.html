@@ -1,0 +1,28 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/buy_stock.css' %}">{% endblock %}
+{% block title %}Покупка акции{% endblock %}
+
+{% block content %}
+        <body>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ stock_user_list_name }}
+            <section class="sect col-6">
+                <h2 class="sect__title">Продать акции</h2>
+
+                <div class="sect__block"><p class="sect__block__text">{{ context.0 }}</p></div>
+
+
+                <div class="sect__summa"><p class="sect__block__text">Сумма к продаже: {{ context.2 }}</p></div>
+                <div class="row justify__content__center">
+                    <input type="submit" class="sect__btn sect__title" value="Продать">
+
+                </div>
+
+            </section>
+        </form>
+
+        </body>
+{% endblock %}

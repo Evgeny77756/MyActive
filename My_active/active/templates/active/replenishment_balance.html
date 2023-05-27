@@ -1,0 +1,26 @@
+{% extends 'base_generic.html' %}
+
+{% load static %}
+{% block styles %}<link rel="stylesheet" href="{% static 'css/buy_stock.css' %}">{% endblock %}
+{% block title %}Пополнение баланса{% endblock %}
+
+{% block content %}
+        <body>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <section class="sect col-6">
+                <h2 class="sect__title">Пополнить баланс</h2>
+
+                <input type="text" class="sect__block__text sect__kol" placeholder="сумма к зачислению"  name="deposit">
+
+                <div class="row justify__content__center">
+                    <input type="submit" class="sect__btn sect__title" value="Пополнить">
+
+                </div>
+
+            </section>
+        </form>
+
+        </body>
+{% endblock %}

@@ -1,8 +1,7 @@
 import psycopg2
 from django.contrib import admin
 from psycopg2 import OperationalError
-
-from .models import Stock
+from .models import Stock, PersonalStock, ListStock, ChatMessage
 
 
 # проверка соединения с БД
@@ -27,7 +26,6 @@ class StockAdmin(admin.ModelAdmin):
 
     import requests
     from datetime import date, timedelta
-    from datetime import date
 
 
     # список зарегистрированных акций
@@ -53,7 +51,7 @@ class StockAdmin(admin.ModelAdmin):
         lst_data_intr.append(res['from'])
         lst_data_intr.append(res['high'])
         lst_data.append(lst_data_intr)
-
+        # print(lst_data_intr)
     # получаем все наши объекты, то есть зарегистрированные акции
     posts = Stock.objects.all()
 
@@ -97,5 +95,25 @@ class StockAdmin(admin.ModelAdmin):
             print(j)
 
 
-    list_display = ('name', 'data_open', 'price')
+    list_display = ('id', 'name', 'data_open', 'price')
 
+
+@admin.register(PersonalStock)
+class PersonalStockAdmin(admin.ModelAdmin):
+    list_display = ('PersonalStockNameUser', 'fixPrice', 'deposit', 'currentMany', 'totalCountAPLE', 'totalCountAMZN', 'totalCountTSLA', 'totalCountMSFT', 'totalCountAMD', )
+
+
+
+@admin.register(ListStock)
+class ListStockAdmin(admin.ModelAdmin):
+    list_display = ('pers', 'userListName', 'countStock' )
+
+
+@admin.register(ChatMessage)
+class ChatMessageAdmin(admin.ModelAdmin):
+    list_display = ('user', 'message', 'create_date', )
+#
+# @admin.register(ChatMessageListView)
+# class ChatMessageListViewAdmin(admin.ModelAdmin):
+#     list_display = ('user', 'message', 'create_date', )
+#
